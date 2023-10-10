@@ -19,6 +19,7 @@ import { IndexComponent } from './components/index/index.component';
 import { CustomerIndexComponent } from './components/customer-index/customer-index.component';
 import { ProductsCardsComponent } from './components/products-cards/products-cards.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ReportsComponent } from './components/reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     IndexComponent,
     CustomerIndexComponent,
     ProductsCardsComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,

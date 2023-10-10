@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { FinancialProductService } from 'src/app/services/financial-product.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { FinancialProduct } from 'src/app/model/financial-product';
 
 @Component({
   selector: 'app-products-cards',
@@ -10,7 +11,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
   styleUrls: ['./products-cards.component.scss']
 })
 export class ProductsCardsComponent {
-  @Input() financialProducts: any = [];
+  @Input() financialProducts: FinancialProduct[] = [];
   @Input() totalBalance: number = 0;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -21,13 +22,15 @@ export class ProductsCardsComponent {
   }
 
   cancelProduct(financialProductId: any) {
-    console.log(financialProductId);
     this.financialProductService.cancelProduct(financialProductId).subscribe({
       next: data => {
-        this.openDialog("¡Transacción realizada exitosamente!");
+        if(data.isSuccess)
+          this.openDialog("¡Transacción realizada exitosamente!");
+        else
+        this.openDialog(`Hubo un error al realizar la transacción: ${data.message}`);
       },
       error: err => {
-        this.openSnackBar(`Hubo un error al realizar la transacción${err.message}`);
+        this.openSnackBar(`Hubo un error al realizar la transacción${err.error.message}`);
       }
     })
   }

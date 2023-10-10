@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { FinancialProductService } from 'src/app/services/financial-product.service';
 import { DialogComponent } from '../dialog/dialog.component';
+import { ProductType } from 'src/app/model/financial-product';
 
 @Component({
   selector: 'app-new-product-dialog',
@@ -11,9 +12,9 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrls: ['./new-product-dialog.component.scss']
 })
 export class NewProductDialogComponent implements OnInit {
-  productType: any = [];
+  productType: ProductType[] = [];
   newProductFormGroup: FormGroup;
-  selectedProductType: any = {};
+  selectedProductType: ProductType = {} as ProductType;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 

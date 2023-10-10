@@ -7,6 +7,7 @@ import { IndexComponent } from './components/index/index.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CustomerIndexComponent } from './components/customer-index/customer-index.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ReportsComponent } from './components/reports/reports.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'customers', component: CustomersComponent },
       { path: 'customerDetail/:customerid', component: CustomerDetailComponent },
       { path: 'customer', component: CustomerFormComponent },
+      { path: 'reports', component: ReportsComponent}
     ]
   }
 ];

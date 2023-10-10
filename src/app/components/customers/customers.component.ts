@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Customer } from 'src/app/model/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 
 export class CustomersComponent implements OnInit, AfterViewInit {
-  customerList: any = [];
+  customerList: Customer[] = [];
   displayedColumns: string[] = ['documentNumber', 'name', 'customerType', 'options'];
   dataSource: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;

@@ -7,6 +7,7 @@ import { FinancialProductService } from 'src/app/services/financial-product.serv
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { FinancialProduct } from 'src/app/model/financial-product';
 
 @Component({
   selector: 'app-product-detail',
@@ -14,7 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  financialProduct: any;
+  financialProduct: FinancialProduct;
   displayedColumns: string[] = ['movementDate', 'value', 'movementType'];
   dataSource: any;
   actionFormGroup: FormGroup;
@@ -98,8 +99,8 @@ export class ProductDetailComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-      window.location.reload();
-      //this.router.navigate['customer'];
+      //window.location.reload();
+      this.router.navigate(['customer']);
     });
   }
 

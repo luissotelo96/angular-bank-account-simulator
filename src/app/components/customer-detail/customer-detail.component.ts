@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CustomerService } from 'src/app/services/customer.service';
 import { FinancialProductService } from 'src/app/services/financial-product.service';
 import { NewProductDialogComponent } from '../new-product-dialog/new-product-dialog.component';
+import { Customer } from 'src/app/model/customer';
+import { FinancialProduct } from 'src/app/model/financial-product';
 
 @Component({
   selector: 'app-customer-detail',
@@ -11,8 +13,8 @@ import { NewProductDialogComponent } from '../new-product-dialog/new-product-dia
   styleUrls: ['./customer-detail.component.scss']
 })
 export class CustomerDetailComponent implements OnInit {
-  customerInfo: any = {};
-  financialProducts: any = [];
+  customerInfo: Customer = {} as Customer;
+  financialProducts: FinancialProduct[] = [];
   totalBalance: number = 0;
 
   constructor(private customerService: CustomerService,
@@ -27,7 +29,7 @@ export class CustomerDetailComponent implements OnInit {
 
       this.customerService.getCustomerById(customerId).subscribe({
         next: data => {
-          this.customerInfo = data.data;
+          this.customerInfo = data.data;          
         },
         error: err => {
           console.log("Error al obtener la información del cliente: ", err);
@@ -36,7 +38,6 @@ export class CustomerDetailComponent implements OnInit {
 
       this.financialProductService.getFinancialProductsByIdCustomer(customerId).subscribe({
         next: data => {
-          console.log(data);
           this.financialProducts = data.data;
           this.totalBalance = this.financialProducts.reduce((total, product) => total + product.balance, 0);
         },

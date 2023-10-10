@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { Customer } from 'src/app/model/customer';
+import { FinancialProduct } from 'src/app/model/financial-product';
 import { CustomerService } from 'src/app/services/customer.service';
 import { FinancialProductService } from 'src/app/services/financial-product.service';
 
@@ -10,9 +12,9 @@ import { FinancialProductService } from 'src/app/services/financial-product.serv
 })
 export class CustomerIndexComponent {
 
-  financialProductList: any = [];
+  financialProductList: FinancialProduct[] = [];
   totalBalance: number = 0;
-  customer: any = {};
+  customer: Customer = {} as Customer;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 

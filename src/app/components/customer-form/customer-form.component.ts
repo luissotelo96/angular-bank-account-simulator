@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { CustomerService } from 'src/app/services/customer.service';
 import { DialogComponent } from '../dialog/dialog.component';
+import { CustomerType } from 'src/app/model/customer';
 
 @Component({
   selector: 'app-customer-form',
@@ -12,7 +13,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class CustomerFormComponent implements OnInit {
   customerFormGroup: FormGroup;
-  customerTypes: any = [];
+  customerTypes: CustomerType[] = [];
   isEnterpriseCustomer: boolean = false;
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
