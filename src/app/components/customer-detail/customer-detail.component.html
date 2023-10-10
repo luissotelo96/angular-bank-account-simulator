@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="customer-info">
+        <div class="vertical-content" style="margin-right: 5rem;">
+            <h1>{{customerInfo.name}}</h1>
+    
+            <p><span><b>Número de documento: </b></span>{{customerInfo.documentNumber}}</p>
+            <p><span><b>Nombre completo: </b></span>{{customerInfo.name}}</p>
+            <p><span><b>Tipo de cliente: </b></span>{{customerInfo.customerType?.description}}</p>
+        </div>
+        <div class="vertical-content" *ngIf="customerInfo.legalRepresentative">
+            <h2>Representante legal: {{customerInfo.legalRepresentative.name}}</h2>
+    
+            <p><span><b>Número de documento: </b></span>{{customerInfo.legalRepresentative.documentNumber}}</p>
+            <p><span><b>Nombre completo: </b></span>{{customerInfo.legalRepresentative.name}}</p>
+            <p><span><b>Tipo de cliente: </b></span>{{customerInfo.legalRepresentative.customerType?.description}}
+            </p>
+        </div>
+    </div>
+   
+    <div class="product-info">
+        <h2>Productos</h2>
+        <button mat-raised-button color="primary" disabled="{{financialProducts.length === 3}}" (click)="openDialog()">
+            <mat-icon>add</mat-icon>
+            Añadir producto
+        </button>
+    </div>
+
+    <app-products-cards *ngIf="financialProducts" [financialProducts]="financialProducts" [totalBalance]="totalBalance"></app-products-cards>        
+</div>

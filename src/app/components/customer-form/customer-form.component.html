@@ -1,0 +1,50 @@
+<div class="container">
+    <h1>Nuevo cliente</h1>
+    <h5>Información del titular de la cuenta</h5>
+    <form [formGroup]="customerFormGroup" class="form">
+        <mat-form-field appearance="outline">
+            <mat-label>Número de documento</mat-label>
+            <input type="text" formControlName="documentNumber" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input type="text" formControlName="name" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Teléfono</mat-label>
+            <span style="margin-left: 10px;" matPrefix>+57 &nbsp;</span>
+            <input type="text" formControlName="phoneNumber" placeholder="555-555-5555" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Tipo cliente</mat-label>
+            <mat-select (selectionChange)="onCustomerTypeChange($event)" formControlName="customerType">
+                <mat-option *ngFor="let item of customerTypes" [value]="item">{{
+                    item.description}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="legal-representative" *ngIf="isEnterpriseCustomer" formGroupName="legalRepresentative">
+            <h5>Información del representante legal (Sólo aplica si titular es de tipo Empresarial)</h5>
+            <mat-form-field appearance="outline">
+                <mat-label>Número de documento RL</mat-label>
+                <input type="text" formControlName="documentNumber" matInput>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre RL</mat-label>
+                <input type="text" formControlName="name" matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Teléfono RL</mat-label>
+                <input type="text" formControlName="phoneNumber" matInput>
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button type="button" color="primary" (click)="createCustomer()">Crear Cliente</button>
+
+    </form>
+</div>

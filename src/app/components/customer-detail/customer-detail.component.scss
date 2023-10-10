@@ -1,0 +1,46 @@
+.card {
+  width: 300px;
+  margin: 1rem;
+}
+
+.card-list {
+  display: flex;
+}
+
+.balance {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 1rem;
+}
+
+p {
+  font-size: 14px;
+}
+
+.balance-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.balance-text {
+  font-size: 18px;
+}
+
+.mdc-card__actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vertical-content{
+  display: block;  
+}
+
+.customer-info {
+  display: flex;
+}

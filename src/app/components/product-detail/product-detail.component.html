@@ -1,0 +1,51 @@
+<div class="container" *ngIf="financialProduct">
+    <p>Cuenta</p>
+    <h1>{{financialProduct.productType?.description}}</h1>
+
+    <p>Saldo disponible</p>
+    <h1>{{financialProduct.balance}}</h1>
+
+    <div class="options" *ngIf="financialProduct.productType?.productTypeID !== 3">
+        <p>Acciones</p>
+        <form [formGroup]="actionFormGroup">
+            <mat-form-field appearance="outline">
+                <mat-label>Seleccione una acción</mat-label>
+                <mat-select formControlName="selectedAction">
+                    <mat-option [value]="1">Depositar dinero</mat-option>
+                    <mat-option [value]="2">Retirar dinero</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Valor</mat-label>
+                <input type="number" matInput formControlName="value" matInput>
+            </mat-form-field>
+
+            <button mat-raised-button type="button" color="primary" (click)="makeTransaction()">Realizar transacción</button>
+        </form>
+    </div>
+
+    <h1>Movimientos</h1>
+    <table mat-table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="movementDate">
+            <th mat-header-cell *matHeaderCellDef>Fecha del movimiento </th>
+            <td mat-cell *matCellDef="let element"> {{element.movementDate}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="value">
+            <th mat-header-cell *matHeaderCellDef> Valor </th>
+            <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="movementType">
+            <th mat-header-cell *matHeaderCellDef> Tipo de movimiento </th>
+            <td mat-cell *matCellDef="let element"> {{element.movementType}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

@@ -1,0 +1,27 @@
+<div class="customer-index">
+    <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button><mat-icon>home</mat-icon></button>
+        <h1 class="example-app-name">Bank account simulator</h1>
+    </mat-toolbar>
+
+    <div class="container">
+        <h1>Bienvenido</h1>
+        <mat-label>Favor, digite su número de documento para ver sus productos</mat-label>
+        <mat-form-field appearance="outline">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup.enter)="searchCustomerProducts($event)" placeholder="Buscar" #input>
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <mat-divider></mat-divider>
+        <h1>{{customer.name}}</h1>
+
+        <app-products-cards *ngIf="financialProductList" [financialProducts]="financialProductList"
+            [totalBalance]="totalBalance"></app-products-cards>
+
+        <mat-divider></mat-divider>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

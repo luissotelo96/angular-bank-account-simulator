@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Nuevo producto</h2>
+<mat-dialog-content>
+    <div class="new-product-form">
+        <form [formGroup]="newProductFormGroup">
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo de producto</mat-label>
+                <mat-select (selectionChange)="onTypeProductChange($event)">
+                    <mat-option *ngFor="let item of productType" [value]="item">{{
+                        item.description}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" *ngIf="selectedProductType.productTypeID === 3">
+                <mat-label>Interés mensual</mat-label>
+                <input type="text" formControlName="montlyInterest" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline" *ngIf="selectedProductType.productTypeID === 3">
+                <mat-label>Monto inicial</mat-label>
+                <input type="text" formControlName="balance" matInput>
+            </mat-form-field>
+            <button type="button" mat-raised-button color="primary" (click)="createProduct()">Crear</button>
+        </form>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <!--<button mat-button mat-dialog-close>Cancel</button>-->
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Cerrar</button>
+</mat-dialog-actions>

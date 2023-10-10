@@ -1,0 +1,23 @@
+<div class="card-list">
+    <mat-card class="card" *ngFor="let item of financialProducts">
+        <mat-card-header>
+            <mat-card-subtitle>Fecha inicio: {{item.dateInit | date: 'd/MMMM/yy'}}</mat-card-subtitle>
+            <mat-card-title>{{item.productType.description}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="balance-container">
+                <p class="balance-text">Saldo total: {{ item.balance | currency: 'COP'}}</p>
+            </div>
+            <mat-divider></mat-divider>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" routerLink="productDetail/{{item.financialProductID}}" routerLinkActive="active">Ver movimientos</button>
+            <button *ngIf="item.productType.productTypeID === 3" mat-raised-button color="warn" (click)="cancelProduct(item.financialProductID)">Cancelar</button>
+        </mat-card-actions>
+        <mat-card-footer>
+        </mat-card-footer>
+    </mat-card>
+</div>
+<div class="balance">
+    <h1>Saldo total: {{totalBalance | currency:'COP' }}</h1>
+</div>
