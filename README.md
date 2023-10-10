@@ -17,7 +17,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Instrucciones
 
 El proyecto por defecto correrá en el puerto 4200. Aquí se tendrá el menú principal: 
-![image](https://github.com/luissotelo96/angular-bank-account-simulator/assets/82717865/3192ec1a-0fd5-4893-a3b8-feffb0399d52)
+![image](https://github.com/luissotelo96/angular-bank-account-simulator/assets/82717865/3f8c11a3-c51c-4e62-8e67-3e46da2c3d79)
 
 
 1. El menú Administrador cuenta con la opción de ver todos los clientes, crear clientes nuevo, crear productos nuevos y ver los productos de cada cliente. Así mismo de poder generar los reportes.
