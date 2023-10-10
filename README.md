@@ -14,14 +14,13 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Instrucciones
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+El proyecto por defecto correrá en el puerto 4200. Aquí se tendrá el menú principal: 
+![image](https://github.com/luissotelo96/angular-bank-account-simulator/assets/82717865/3192ec1a-0fd5-4893-a3b8-feffb0399d52)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. El menú Administrador cuenta con la opción de ver todos los clientes, crear clientes nuevo, crear productos nuevos y ver los productos de cada cliente. Así mismo de poder generar los reportes.
+2. El menú Cliente cuenta con la opción para ver sus productos, crear movimientos, cancelar un producto (CDT).
+3. **Importante**: Para que todo funcione con normalidad, debe estar ejecutándose el proyecto de Azure Function, por defecto por el puerto 7284: https://github.com/luissotelo96/fn-bank-account-simulator.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
